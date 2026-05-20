@@ -17,7 +17,7 @@ font-family:Arial;
 
 body{
 height:100vh;
-background:url('https://i.imgur.com/U8V7G6M.jpeg') center center/cover no-repeat;
+background:url('https://kommodo.ai/i/KjOO3wjf11A4XHTCAZQH') center center/cover no-repeat;
 display:flex;
 justify-content:center;
 align-items:center;
