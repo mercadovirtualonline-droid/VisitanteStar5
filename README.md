@@ -99,7 +99,7 @@ color:#00ff88;
 <div class="container">
 
 <img class="logo"
-src="https://i.imgur.com/9x8K6xX.png">
+src="
 
 <h1>Bem-vindo ao Wi-Fi</h1>
 
@@ -108,7 +108,7 @@ Siga nosso Instagram para liberar seu acesso gratuito.
 </p>
 
 <button class="instagram" onclick="seguirInstagram()">
-ðŸ“¸ Seguir no Instagram
+“¸ Seguir no Instagram
 </button>
 
 <div class="loading" id="loading">
