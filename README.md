@@ -98,7 +98,7 @@ color:#00ff88;
 <div class="container">
 
 <img class="logo"
-src="https://i.imgur.com/9x8K6xX.png">
+src="https://kommodo.ai/i/KjOO3wjf11A4XHTCAZQH">
 
 <h1>Bem-vindo ao Wi-Fi</h1>
 
