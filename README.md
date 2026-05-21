@@ -1,4 +1,5 @@
-<script>
+<!DOCTYPE html>
+<html lang="pt-BR"><script>
 
 function seguirInstagram(){
 
