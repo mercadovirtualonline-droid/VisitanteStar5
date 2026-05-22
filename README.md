@@ -129,7 +129,7 @@ mode: "no-cors"
 
 setTimeout(() => {
 
-window.location.href = "https://instagram.com";
+window.location.href = "https://www.instagram.com/star.festaseeventos?igsh=ejByMXRoNTlmdmR2&utm_source=qr";
 
 }, 1500);
 
