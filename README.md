@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Star Festas Wi-Fi</title>
+<title>Wi-Fi Free</title>
 
 <style>
 
@@ -12,82 +12,78 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial,sans-serif;
 }
 
 body{
 height:100vh;
-background:url('https://i.imgur.com/U8V7G6M.jpeg') center center/cover no-repeat;
 display:flex;
 justify-content:center;
 align-items:center;
-position:relative;
+background:#000;
+overflow:hidden;
 }
 
-body::before{
-content:'';
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.65);
+.video-bg{
+position:fixed;
+right:0;
+bottom:0;
+min-width:100%;
+min-height:100%;
+object-fit:cover;
+z-index:-1;
 }
 
-.container{
-position:relative;
-z-index:2;
+.box{
 width:90%;
-max-width:420px;
-background:rgba(0,0,0,.55);
-backdrop-filter:blur(5px);
-border:2px solid #FFD700;
-border-radius:25px;
+max-width:350px;
+background:rgba(0,0,0,0.75);
 padding:30px;
+border-radius:20px;
 text-align:center;
-color:#fff;
-box-shadow:0 0 25px rgba(255,215,0,.4);
+backdrop-filter:blur(5px);
 }
 
 .logo{
-width:180px;
+width:90px;
 margin-bottom:20px;
 }
 
 h1{
-font-size:34px;
-margin-bottom:20px;
+color:#fff;
+margin-bottom:10px;
+font-size:24px;
 }
 
 p{
-font-size:18px;
-margin-bottom:30px;
-line-height:1.5;
+color:#ddd;
+margin-bottom:25px;
+font-size:15px;
 }
 
 button{
 width:100%;
-padding:18px;
+padding:15px;
 border:none;
-border-radius:15px;
-font-size:24px;
+border-radius:12px;
+background:#E1306C;
+color:#fff;
+font-size:18px;
 font-weight:bold;
 cursor:pointer;
-margin-top:15px;
-transition:.3s;
+transition:0.3s;
 }
 
-.instagram{
-background:#FFD700;
-color:#000;
-}
-
-.instagram:hover{
+button:hover{
 transform:scale(1.03);
+background:#ff2c75;
 }
 
 .loading{
 display:none;
 margin-top:20px;
-font-size:18px;
-color:#00ff88;
+color:#fff;
+font-size:14px;
 }
 
 </style>
@@ -95,76 +91,53 @@ color:#00ff88;
 
 <body>
 
-<div class="container">
+<video autoplay muted loop class="video-bg">
+<source src="https://cdn.coverr.co/videos/coverr-night-city-1567843181086?download=1080p" type="video/mp4">
+</video>
+
+<div class="box">
 
 <img class="logo"
-src="https://kommodo.ai/i/KjOO3wjf11A4XHTCAZQH">
+src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
 
-<h1>Bem-vindo ao Wi-Fi</h1>
+<h1>Wi-Fi Liberado</h1>
 
 <p>
-Siga nosso Instagram para liberar seu acesso gratuito.
+Clique abaixo para acessar o Instagram e liberar sua internet.
 </p>
 
-<button class="instagram" onclick="seguirInstagram()">
-📸 Seguir no Instagram
+<button onclick="liberarWifi()">
+ENTRAR COM INSTAGRAM
 </button>
 
 <div class="loading" id="loading">
-✔ Liberando Wi-Fi...
+Conectando...
 </div>
 
 </div>
 
 <script>
 
-function seguirInstagram(){
+function liberarWifi(){
 
-document.getElementById('loading').style.display='block';
+document.getElementById("loading").style.display="block";
 
-window.open(
-'https://www.instagram.com/star.festaseeventos?igsh=ejByMXRoNTlmdmR2&utm_source=qr',
-'_blank'
-);
+fetch("http://10.0.0.1/auth", {
+method: "POST",
+mode: "no-cors"
+});
 
 setTimeout(() => {
 
-liberarWifi();
+window.location.href = "https://instagram.com";
 
-}, 4000);
+}, 1500);
 
-}
+setTimeout(() => {
 
-function liberarWifi(){
+window.location.href = "https://www.google.com.br";
 
-const currentUrl = window.location.href;
-
-if(currentUrl.includes("userurl=")){
-
-const url = new URL(currentUrl);
-
-const userurl = url.searchParams.get("userurl");
-const uamip = url.searchParams.get("uamip");
-const uamport = url.searchParams.get("uamport");
-const challenge = url.searchParams.get("challenge");
-
-if(uamip && uamport){
-
-window.location.href =
-"http://" + uamip + ":" + uamport +
-"/logon?username=star&password=star";
-
-}else{
-
-window.location.href = userurl || "https://google.com";
-
-}
-
-}else{
-
-window.location.href = "https://google.com";
-
-}
+}, 7000);
 
 }
 
